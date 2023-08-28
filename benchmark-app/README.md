@@ -8,7 +8,7 @@ The [CoNLL 2003](https://www.clips.uantwerpen.be/conll2003/) dataset used in thi
 
 ```
 mkdir -p ./data/conll2003
-wget https://raw.githubusercontent.com/JohnSnowLabs/spark-nlp/master/src/test/resources/conll2003/eng.testa -O ./data/conll2023/eng.testa
+wget https://raw.githubusercontent.com/JohnSnowLabs/spark-nlp/master/src/test/resources/conll2003/eng.train -O ./data/conll2023/eng.train
 ```
 
 # Windows
@@ -214,7 +214,7 @@ docker build -t benchmark-app .
 - To run as a Scala application, run the following command from the project root. The `models`, `data` and `app` folders are mounted into the container (use the full directory path on MacOS). 
 
     ``` 
-    docker run -v ./models:/models -v ./data:/data -v ./app:/app/ -e JAVA_OPTS=-Xmx4g -e MODEL_PATH=file:/models/<model-name> -e DATA_PATH=file:/data/conll2023/eng.testa -e USE_OPENVINO=true -e BATCH_SIZE=16 benchmark-app scala -classpath /opt/spark-3.2.3/jars/*:app app/BenchmarkApp.scala
+    docker run -v ./models:/models -v ./data:/data -v ./app:/app/ -e JAVA_OPTS=-Xmx4g -e MODEL_PATH=file:/models/<model-name> -e DATA_PATH=file:/data/conll2023/eng.train -e USE_OPENVINO=true -e BATCH_SIZE=16 benchmark-app scala -classpath /opt/spark-3.2.3/jars/*:app app/BenchmarkApp.scala
     ```
 
 - To build the jar, use the following command. A new directory `lib` is created and mounted to the container. The jar will be compiled to this directory.
@@ -227,7 +227,7 @@ docker build -t benchmark-app .
     Then run the following command to launch the application using `spark-submit`
 
     ```
-    docker run -v ./models:/models -v ./data:/data -v ./lib:/lib/ -e JAVA_OPTS=-Xmx4g -e MODEL_PATH=file:/models/bert-base-cased -e DATA_PATH=file:/data/conll2023/eng.testa -e USE_OPENVINO=true -e BATCH_SIZE=16 benchmark-app spark-submit --driver-memory=4g --class BenchmarkApp /lib/benchmarkapp.jar
+    docker run -v ./models:/models -v ./data:/data -v ./lib:/lib/ -e JAVA_OPTS=-Xmx4g -e MODEL_PATH=file:/models/bert-base-cased -e DATA_PATH=file:/data/conll2023/eng.train -e USE_OPENVINO=true -e BATCH_SIZE=16 benchmark-app spark-submit --driver-memory=4g --class BenchmarkApp /lib/benchmarkapp.jar
     ```
 
 ## Arguments
