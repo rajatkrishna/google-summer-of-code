@@ -16,7 +16,7 @@ The [official documentation](https://sparknlp.org/docs/en/concepts) provides mor
 
 ## Importing a Model
 
-Spark NLP supports importing custom models in the Tensorflow SavedModel format using the Tensorflow library, and ONNX models using ONNX Runtime library. See [here](https://github.com/JohnSnowLabs/spark-nlp/discussions/5669) for the full list of supported models and sample notebooks. With the OpenVINO integration, any model that can be read and converted through the `core.read_model` + `Openvino.serialize` flow should be supported if the correct model signatures are preserved during export and model assets are placed in an `assets` folder in the exported model directory.
+Spark NLP supports importing custom models in the Tensorflow SavedModel format using the Tensorflow library, and ONNX models using ONNX Runtime library. See [here](https://github.com/JohnSnowLabs/spark-nlp/discussions/5669) for the full list of supported models and sample notebooks. With the OpenVINO integration, models that can be read and converted through the `core.read_model` + `Openvino.serialize` flow should be supported if the correct model signatures are preserved during export and model assets are placed in an `assets` folder in the exported model directory.
 
 Annotators that support importing custom models offer a `loadSavedModel` function in their companion objects. This function accepts the model path and returns an instance of the equivalent Spark Annotator constructed from the imported model. For example, to import a BERT model into the `BertEmbeddings` annotator, we can use the following statement:
 
@@ -43,7 +43,7 @@ An ONNX model has the following structure:
 ├── model.onnx
 ```
 
-And an IR format model has the following structure:
+And an OpenVINO format model has the following structure:
 
 ```
 ├── assets/

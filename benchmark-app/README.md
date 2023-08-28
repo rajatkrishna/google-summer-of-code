@@ -239,3 +239,25 @@ The following parameters can be adjusted through env variables:
 - USE_OPENVINO: Pass this flag to use OpenVINO backend for inference. In the absence of this argument, Tensorflow is used by default
 - MODEL: The model to benchmark. Can be "BERT", "ROBERTA" or "XLMROBERTA"
 - MAX_SENTENCE_LENGTH: Input sequence length
+
+## Results
+
+The benchmarks were run on the [eng.testa](https://github.com/JohnSnowLabs/spark-nlp/blob/master/src/test/resources/conll2003/eng.testa) validation dataset of the [CoNLL 2003 Dataset](https://www.clips.uantwerpen.be/conll2003/).
+
+### Platform
+
+| | |
+|--------|---------------------------------|
+| CPU    | 12th Generation Intel i7-12700H |
+| Cores  | 14                              |
+| Memory | 16 GB                           |
+
+### bert-large-cased (Hugging Face)
+
+![Alt text](./results/bert-large-cased-bs4.png)
+
+![Alt text](./results/bert-large-cased-bs8.png)
+
+### roberta-large (Hugging Face)
+
+![Alt text](./results/roberta-large-bs4.png)
