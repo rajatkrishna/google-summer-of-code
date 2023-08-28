@@ -15,7 +15,7 @@ Spark NLP allows you to build and use state-of-the-art NER pipelines easily with
 
 2. OpenVINO 2023.0 or higher
 
-    Follow the instructions [here](../../openvino/build-ov-lin.md) to build OpenVINO with the Java bindings from source. Install the OpenVINO components to `/opt/intel/openvino-2023.0`.
+    Follow the instructions [here](../../../openvino/build-ov-lin.md) to build OpenVINO with the Java bindings from source. Install the OpenVINO components to `/opt/intel/openvino-2023.0`.
 
     Use the provided script to install the necessary dependencies.
 
@@ -68,12 +68,12 @@ Spark NLP allows you to build and use state-of-the-art NER pipelines easily with
 
 4. Spark NLP 
 
-    Follow the steps [here](../spark-nlp-jar.md) to compile the jar from source. 
+    Follow the steps [here](../../spark-nlp-jar.md) to compile the jar from source. 
 
 
 ## Model
 
-This [notebook](../../../notebooks/Export_BERT_HuggingFace.ipynb) demonstrates how to export a BERT model from HuggingFace. In this example, we import this model into Spark NLP using the OpenVINO Runtime backend. 
+This [notebook](../../../../notebooks/Export_BERT_HuggingFace.ipynb) demonstrates how to export a BERT model from HuggingFace. In this example, we import this model into Spark NLP using the OpenVINO Runtime backend. 
 
 Move the exported saved model directory to a new `models` folder as follows so we can locate it later
 
@@ -155,4 +155,4 @@ val result = pipeline.fit(data).transform(data)
 result.select("ner.result").show(false)
 ```
 
-![Alt text](../img/spark-nlp-ner.png)
+![Alt text](../../img/spark-nlp-ner.png)

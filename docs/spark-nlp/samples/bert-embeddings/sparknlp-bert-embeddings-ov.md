@@ -13,7 +13,7 @@ This demo demonstrates the steps to import a `BERT` model from HuggingFace into 
 
 2. OpenVINO 2023.0 or higher
 
-    Follow the instructions [here](../../openvino/build-ov-lin.md) to build OpenVINO with the Java bindings from source. Install the OpenVINO components to `/opt/intel/openvino-2023.0`. 
+    Follow the instructions [here](../../../openvino/build-ov-lin.md) to build OpenVINO with the Java bindings from source. Install the OpenVINO components to `/opt/intel/openvino-2023.0`. 
 
     Use the provided script to install the necessary dependencies.
 
@@ -66,12 +66,12 @@ This demo demonstrates the steps to import a `BERT` model from HuggingFace into 
 
 4. Spark NLP 
 
-    Follow the steps [here](../spark-nlp-jar.md) to compile the jar from source. 
+    Follow the steps [here](../../spark-nlp-jar.md) to compile the jar from source. 
 
 
 ## Model
 
-This [notebook](../../../notebooks/Export_BERT_HuggingFace.ipynb) demonstrates how to export a BERT model from HuggingFace. In this example, we import this model into Spark NLP using the OpenVINO Runtime backend. 
+This [notebook](../../../../notebooks/Export_BERT_HuggingFace.ipynb) demonstrates how to export a BERT model from HuggingFace. In this example, we import this model into Spark NLP using the OpenVINO Runtime backend. 
 
 Move the exported saved model directory to a new `models` folder as follows so we can locate it later
 
@@ -90,7 +90,7 @@ First, launch the Spark Scala REPL with the Spark NLP jar
 spark-shell --jars ~/spark-nlp/python/lib/sparknlp.jar --driver-memory=2g
 ```
 
-![spark-shell](../img/spark-shell.png)
+![spark-shell](../../img/spark-shell.png)
 
 The SparkSession class is the entrypoint into all Spark functionality. The active Spark Session will be available in the shell environment as `spark`.
 
@@ -151,6 +151,6 @@ val result = pipeline.fit(data).transform(data)
 result.select(explode($"finished_embeddings") as "result").show(5, 100)
 ```
 
-![Alt text](../img/embeddings-output.png)
+![Alt text](../../img/embeddings-output.png)
 
-These embeddings can be used for further downstream tasks. For example, this [example](./spark-nlp-bert-ov-ner.md) demonstrates how to use the BERT embeddings for Named Entity Recognition using a pretrained `NerDLModel`.
+These embeddings can be used for further downstream tasks. For example, this [example](../bert-ner/spark-nlp-bert-ov-ner.md) demonstrates how to use the BERT embeddings for Named Entity Recognition using a pretrained `NerDLModel`.
