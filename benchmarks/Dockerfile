@@ -26,7 +26,7 @@ RUN apt-get update; \
     rm install_build_dependencies.sh
 
 ENV OV_CONTRIB_FORK="rajatkrishna"
-ENV OV_CONTRIB_BRANCH="sparknlp-integration"
+ENV OV_CONTRIB_BRANCH="ov-java-api"
 
 SHELL ["/bin/bash", "-c"]
 
@@ -81,7 +81,7 @@ RUN apt-get update; \
     export PATH=$PATH:$SPARK_HOME/bin
 
 ARG SPARKNLP_FORK="rajatkrishna"
-ARG SPARKNLP_BRANCH="bm-etst"
+ARG SPARKNLP_BRANCH="feature/ov-integration"
 
 # Build Spark NLP jar
 RUN git clone https://github.com/${SPARKNLP_FORK}/spark-nlp.git -b ${SPARKNLP_BRANCH} --depth 1; \
