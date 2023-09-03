@@ -1,6 +1,6 @@
 # Spark NLP-OpenVINO™ Benchmarks
 
-This project provides a benchmarking script for measuring the time taken to run a simple Spark NLP pipeline using custom pre-trained models. A [Dockerfile](./Dockerfile) that builds an Ubuntu 20.04 image that comes installed with the OpenVINO Toolkit version 2023.0.1, Apache Spark library 3.2.3 and John Snow Labs Apache Spark NLP library is also provided to run this script.
+This project provides a benchmarking script for measuring the time taken to run a simple Spark NLP pipeline using custom pre-trained models. A [Dockerfile](../Dockerfile) that builds an Ubuntu 20.04 image that comes installed with the OpenVINO Toolkit version 2023.0.1, Apache Spark library 3.2.3 and John Snow Labs Apache Spark NLP library is also provided to run this script.
 
 # Dataset
 
