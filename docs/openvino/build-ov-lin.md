@@ -14,7 +14,7 @@ This guide outlines the steps involved in building OpenVINO from the source file
 - Git
 - OpenJDK 8
     ```
-    sudo apt upgrade
+    sudo apt update
     sudo apt install openjdk-8-jdk
     ```
 - Gradle 7.1 or higher

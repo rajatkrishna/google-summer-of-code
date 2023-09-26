@@ -230,7 +230,7 @@ docker build -t benchmark-app .
     docker run -v ./models:/models -v ./data:/data -v ./lib:/lib/ -e JAVA_OPTS=-Xmx4g -e MODEL_PATH=file:/models/bert-base-cased -e DATA_PATH=file:/data/conll2023/eng.train -e USE_OPENVINO=true -e BATCH_SIZE=16 benchmark-app spark-submit --driver-memory=4g --class BenchmarkApp /lib/benchmarkapp.jar
     ```
 
-## Arguments
+## Parameters
 The following parameters can be adjusted through env variables:
 - MODEL_PATH: path to the pre-trained model
 - DATA_PATH: path to the dataset
