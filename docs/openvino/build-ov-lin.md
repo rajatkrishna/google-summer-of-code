@@ -52,7 +52,7 @@ This guide outlines the steps involved in building OpenVINO from the source file
 1. Clone the source repositories and submodules
 
     ```
-    git clone https://github.com/openvinotoolkit/openvino.git -b releases/2023/0
+    git clone https://github.com/openvinotoolkit/openvino.git -b releases/2023/1
     git clone https://github.com/rajatkrishna/openvino_contrib.git -b ov-java-api
     cd openvino
     git submodule update --init --recursive
@@ -65,16 +65,20 @@ This guide outlines the steps involved in building OpenVINO from the source file
     sudo ./install_build_dependencies.sh
     ```
 
-3. Create the build directory and run `cmake` to fetch the project dependencies and create makefiles. Specify the location of the extra modules repository using the `-DOPENVINO_EXTRA_MODULES` flag. You can disable/enable specific modules using CMake's `BUILD_<module_name>` boolean options. Optionally, you can also specify a preferred install location using the `-DCMAKE_INSTALL_PREFIX` argument. Additional build options can be found [here](https://github.com/openvinotoolkit/openvino_contrib.git). Finally, run `make` to build the project
+3. Create the build directory and run `cmake` to fetch the project dependencies and create makefiles. Specify the location of the extra modules repository using the `-DOPENVINO_EXTRA_MODULES` flag. You can disable/enable specific modules using CMake's `BUILD_<module_name>` boolean options. Use `-DENABLE_INTEL_GPU=ON` for GPU support. Additional build options can be found [here](https://github.com/openvinotoolkit/openvino_contrib.git). Finally, run `make` to build the project
 
     ```
     mkdir build && cd build
     cmake -DBUILD_java_api=ON \
-        -DENABLE_PYTHON=OFF \
-        -DBUILD_arm_plugin=OFF \
+        -DBUILD_arm_plugin=OFF \   
         -DBUILD_nvidia_plugin=OFF\
+        -DENABLE_PYTHON=OFF \
+        -DENABLE_INTEL_GPU=OFF\
+        -DENABLE_MULTI=OFF\
+        -DENABLE_HETERO=OFF\
+        -DENABLE_INTEL_GNA=OFF\
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX=/opt/intel/openvino-2023.0 \
+        -DCMAKE_INSTALL_PREFIX=/opt/intel/openvino-2023.1 \
         -DOPENVINO_EXTRA_MODULES=~/openvino_contrib/modules \
         -DVERBOSE_BUILD=ON \
         -S ~/openvino && make --jobs=$(nproc --all)
@@ -85,7 +89,7 @@ This guide outlines the steps involved in building OpenVINO from the source file
 4. Once the build process has been completed, set up the install directory and install using cmake
 
     ```
-    mkdir -p /opt/intel/openvino-2023.0
+    mkdir -p /opt/intel/openvino-2023.1
     cmake --install .
     ```
 
@@ -95,7 +99,7 @@ This guide outlines the steps involved in building OpenVINO from the source file
 
     ```
     cd ~/openvino_contrib/modules/java_api
-    source /opt/intel/openvino-2023.0/setupvars.sh
+    source /opt/intel/openvino-2023.1/setupvars.sh
     ```
 
     ![setupvars.png](img/setupvars.png)
@@ -111,7 +115,7 @@ This guide outlines the steps involved in building OpenVINO from the source file
 7. Optionally to run the tests, clone the testdata repository which contains the required models. 
 
     ```
-    git clone https://github.com/openvinotoolkit/testdata.git -b releases/2023/0
+    git clone https://github.com/openvinotoolkit/testdata.git -b releases/2023/1
     ```
 
     Then run the following gradle command 
@@ -128,14 +132,14 @@ Alternately, you can download the OpenVINO pre-built binaries from the [release 
 
     ```
     curl -L https://storage.openvinotoolkit.org/repositories/openvino/packages/2023.0.1/linux/l_openvino_toolkit_ubuntu20_2023.0.1.11005.fa1c41994f3_x86_64.tgz --output openvino.tgz
-    sudo mkdir -p /opt/intel/openvino-2023.0.1
+    sudo mkdir -p /opt/intel/openvino-2023.1
     tar -xvzf openvino.tgz -C /opt/intel/openvino-2023.0.1 --strip-components=1
     ```
 
 2. Clone the OpenVINO Contrib repository to fetch the source files for the Java module.
    
     ```
-    git clone https://github.com/rajatkrishna/openvino_contrib.git -b sparknlp-integration
+    git clone https://github.com/rajatkrishna/openvino_contrib.git -b ov-java-api
     ```
 
 3. Install the OpenVINO build dependencies using the script provided in the [OpenVINO Toolkit repository](https://github.com/openvinotoolkit/openvino). Then run the `setupvars` script to make the OpenVINO components visible.

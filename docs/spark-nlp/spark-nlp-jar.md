@@ -1,6 +1,6 @@
 # Spark NLP (Linux) Build Instructions
 
-[Spark NLP](https://github.com/JohnSnowLabs/spark-nlp) is an open-source NLP library built on top of Apache Spark. It offers production-ready NLP annotations for Machine Learning pipelines and state-of-the-art transformers like BERT, RoBERTa, etc with no other ML/NLP library dependencies. Written in Scala, Spark NLP runs on top of the Java Virtual Machine and can be integrated with your Java, Scala and Kotlin applications in addition to the Python API it offers.
+[Spark NLP](https://github.com/JohnSnowLabs/spark-nlp) is an open-source NLP library built on top of Apache Spark, offering production-ready NLP annotations for Machine Learning pipelines and state-of-the-art transformers like BERT, RoBERTa, etc. Written in Scala, Spark NLP runs on top of the Java Virtual Machine and can be integrated with your Java, Scala and Kotlin applications in addition to the Python API it offers.
 
 This demo describes the steps to compile and build the jar for using Spark NLP in your Spark applications.
 
@@ -27,8 +27,6 @@ This demo describes the steps to compile and build the jar for using Spark NLP i
     Follow the steps [here](../openvino/build-ov-lin.md) to setup OpenVINO and compile the jar
 
 ## Build
-
-We can build the Spark NLP jar using the sbt build tool. The following steps outline this process.
 
 - Clone the source repository from GitHub. Use the feature branch `feature/ov-integration` with the latest changes to use OpenVINO Runtime.
 
