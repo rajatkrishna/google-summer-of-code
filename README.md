@@ -34,6 +34,7 @@ This project aims to enhance the capabilities of Spark NLP by adding support for
 
 ## Blogs and other resources
 
+- [The Need for Speed: Accelerating NLP Inferencing in Spark NLP with OpenVINO™ Runtime](https://medium.com/openvino-toolkit/the-need-for-speed-accelerating-nlp-inferencing-in-spark-nlp-with-openvino-runtime-327638fcec80)
 - [Deep Learning Inference in Java with OpenVINO™ Runtime](https://medium.com/openvino-toolkit/deep-learning-inference-in-java-with-openvino-runtime-2ed8fe0b4897)
 - [Spark NLP-OpenVINO Integration Architecture](https://github.com/rajatkrishna/google-summer-of-code/blob/main/docs/spark-nlp/sparknlp-openvino.md)
 - [OpenVINO Java Setup (Linux)](https://github.com/rajatkrishna/google-summer-of-code/blob/main/docs/openvino/build-ov-lin.md)
