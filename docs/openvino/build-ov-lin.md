@@ -53,7 +53,7 @@ This guide outlines the steps involved in building OpenVINO from the source file
 
     ```
     git clone https://github.com/openvinotoolkit/openvino.git -b releases/2023/1
-    git clone https://github.com/rajatkrishna/openvino_contrib.git -b ov-java-api
+    git clone https://github.com/rajatkrishna/openvino_contrib.git 
     cd openvino
     git submodule update --init --recursive
     ```
@@ -139,7 +139,7 @@ Alternately, you can download the OpenVINO pre-built binaries from the [release 
 2. Clone the OpenVINO Contrib repository to fetch the source files for the Java module.
    
     ```
-    git clone https://github.com/rajatkrishna/openvino_contrib.git -b ov-java-api
+    git clone https://github.com/rajatkrishna/openvino_contrib.git
     ```
 
 3. Install the OpenVINO build dependencies using the script provided in the [OpenVINO Toolkit repository](https://github.com/openvinotoolkit/openvino). Then run the `setupvars` script to make the OpenVINO components visible.
